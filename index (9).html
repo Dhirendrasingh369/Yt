@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- PRIMARY SEO META TAGS -->
+  <title>YouTube Video Downloader — Download YouTube Videos Free in MP4 & MP3 | YTGrab</title>
+  <meta name="description" content="Download YouTube videos free in HD MP4 or MP3 audio. Fast, no signup, no ads. Supports 1080p, 720p, 480p, 360p. Works on PC, Android & iPhone. The easiest YouTube downloader online."/>
+  <meta name="keywords" content="youtube video downloader, download youtube videos, youtube to mp4, youtube to mp3, free youtube downloader, online video downloader, download youtube videos free, yt downloader, save youtube video"/>
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+  <meta name="author" content="YTGrab"/>
+  <link rel="canonical" href="https://ytgrab.onrender.com/"/>
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="YTGrab — Free YouTube Video Downloader Online"/>
+  <meta property="og:description" content="Download any YouTube video to MP4 or MP3 for free. No signup required. Supports HD 1080p, 720p and audio-only MP3."/>
+  <meta property="og:url" content="https://ytgrab.onrender.com/"/>
+  <meta property="og:site_name" content="YTGrab"/>
+
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="YTGrab — Free YouTube Video Downloader"/>
+  <meta name="twitter:description" content="Download YouTube videos as MP4 or MP3 instantly. Free, fast, no account needed."/>
+
+  <!-- SCHEMA: WebApplication -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"YTGrab YouTube Downloader","url":"https://ytgrab.onrender.com","description":"Free online YouTube video downloader. Download YouTube videos in MP4 or MP3 format. Supports HD 1080p, 720p, 480p quality. No registration required.","applicationCategory":"MultimediaApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Download YouTube videos in MP4 format","Convert YouTube to MP3 audio","Support for HD 1080p 720p 480p quality","No registration required","Works on mobile and desktop"]}
+  </script>
+
+  <!-- SCHEMA: FAQ -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I download a YouTube video?","acceptedAnswer":{"@type":"Answer","text":"Paste the YouTube video URL into the input box on YTGrab, click Fetch Video, choose your preferred quality, then click Download. The file saves to your device."}},{"@type":"Question","name":"Is YTGrab free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, YTGrab is completely free. No registration, no account, no subscription required."}},{"@type":"Question","name":"Can I download YouTube videos on my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes! YTGrab works on Android, iPhone, tablets, and desktop computers via any browser."}},{"@type":"Question","name":"What video qualities are supported?","acceptedAnswer":{"@type":"Answer","text":"YTGrab supports 1080p Full HD, 720p HD, 480p, 360p, and audio-only MP3 at 192kbps."}},{"@type":"Question","name":"How do I convert YouTube to MP3?","acceptedAnswer":{"@type":"Answer","text":"Paste your URL, click Fetch Video, switch to the Audio MP3 tab, then click Download. Audio saves as a high-quality MP3 file."}},{"@type":"Question","name":"Does YTGrab store my downloaded videos?","acceptedAnswer":{"@type":"Answer","text":"No. Files are deleted from our server immediately after download. Your privacy is protected."}}]}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#f7f8fc;--white:#fff;--border:#e8eaf0;
+      --red:#e53935;--red-l:rgba(229,57,53,.08);--red-g:rgba(229,57,53,.35);
+      --dark:#1a1a2e;--text:#3d3d5c;--muted:#8888aa;
+      --radius:16px;--shadow:0 4px 24px rgba(60,60,100,.08);
+    }
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden}
+
+    /* NAV */
+    nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;padding:0 24px}
+    .nav-inner{max-width:1100px;margin:0 auto;height:60px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--dark);text-decoration:none}
+    .nav-logo span{color:var(--red)}
+    .nav-links{display:flex;gap:28px;list-style:none}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:.88rem;font-weight:600;transition:color .2s}
+    .nav-links a:hover{color:var(--red)}
+
+    /* HERO */
+    .hero{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%);padding:80px 24px 100px;text-align:center;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 120%,rgba(229,57,53,.2) 0%,transparent 60%);pointer-events:none}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(229,57,53,.15);border:1px solid rgba(229,57,53,.3);color:#ff8a80;font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:24px;position:relative}
+    .hero h1{font-family:'Syne',sans-serif;font-size:clamp(1.9rem,5vw,3.4rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:18px;position:relative;letter-spacing:-1px}
+    .hero h1 .hl{color:var(--red)}
+    .hero-sub{color:rgba(255,255,255,.6);font-size:1.05rem;max-width:560px;margin:0 auto 40px;position:relative}
+
+    /* TOOL CARD */
+    .tool-wrap{max-width:780px;margin:-50px auto 0;padding:0 20px;position:relative;z-index:10}
+    .tool-card{background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(30,30,60,.18);overflow:hidden;animation:riseUp .6s ease both}
+    .tool-header{background:linear-gradient(135deg,#1a1a2e,#16213e);padding:24px 28px 20px}
+    .tool-header h2{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:rgba(255,255,255,.45);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+    .input-row{display:flex;gap:10px}
+    .url-input{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 18px;color:#fff;font-family:'Nunito',sans-serif;font-size:.95rem;outline:none;transition:border-color .2s,background .2s}
+    .url-input::placeholder{color:rgba(255,255,255,.3)}
+    .url-input:focus{border-color:var(--red);background:rgba(255,255,255,.09)}
+    .btn-fetch{padding:14px 26px;background:var(--red);color:#fff;border:none;border-radius:12px;font-family:'Nunito',sans-serif;font-weight:700;font-size:.9rem;cursor:pointer;transition:all .2s;white-space:nowrap;box-shadow:0 4px 20px var(--red-g)}
+    .btn-fetch:hover{background:#c62828;transform:translateY(-1px)}
+    .btn-fetch:disabled{opacity:.5;cursor:not-allowed;transform:none}
+    .error-box{background:rgba(229,57,53,.1);border:1px solid rgba(229,57,53,.3);border-radius:10px;padding:12px 16px;color:#ff8a80;font-size:.88rem;margin-top:12px;display:none}
+
+    /* LOADING */
+    .loading-box{padding:48px 28px;text-align:center;display:none}
+    .spinner{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--red);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
+
+    /* VIDEO PREVIEW */
+    .video-preview{display:none;padding:24px 28px;border-top:1px solid var(--border);gap:20px;align-items:flex-start}
+    .thumb-wrap{flex-shrink:0;width:170px;height:96px;border-radius:10px;overflow:hidden;background:var(--border)}
+    .thumb-wrap img{width:100%;height:100%;object-fit:cover}
+    .vmeta{flex:1;min-width:0}
+    .vtitle{font-family:'Syne',sans-serif;font-size:.98rem;font-weight:700;color:var(--dark);margin-bottom:8px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .vchips{display:flex;flex-wrap:wrap;gap:6px 14px}
+    .vchip{font-size:.8rem;color:var(--muted);display:flex;align-items:center;gap:4px}
+    .vchip svg{width:12px;height:12px}
+
+    /* DOWNLOAD PANEL */
+    .dl-panel{display:none;padding:20px 28px 28px;border-top:1px solid var(--border)}
+    .tabs{display:flex;gap:8px;margin-bottom:18px}
+    .tab-btn{padding:8px 18px;border-radius:8px;border:1.5px solid var(--border);background:transparent;color:var(--muted);font-family:'Nunito',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;transition:all .2s}
+    .tab-btn.active{background:var(--red-l);border-color:var(--red);color:var(--red)}
+    .format-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-bottom:20px}
+    .fmt-radio{display:none}
+    .fmt-label{display:block;padding:12px 8px;border:1.5px solid var(--border);border-radius:10px;text-align:center;cursor:pointer;transition:all .2s;background:var(--bg)}
+    .fmt-label:hover{border-color:var(--red);background:var(--red-l)}
+    .fmt-radio:checked+.fmt-label{border-color:var(--red);background:var(--red-l);box-shadow:0 0 0 1px var(--red)}
+    .fmt-res{font-weight:800;font-size:1rem;color:var(--dark);display:block}
+    .fmt-ext{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+    .progress-wrap{display:none;margin-bottom:16px}
+    .progress-track{height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--red),#ff6b6b);border-radius:3px;width:0%;transition:width .4s ease}
+    .progress-label{font-size:.8rem;color:var(--muted);margin-top:6px;text-align:center}
+    .btn-download{width:100%;padding:15px;background:linear-gradient(135deg,var(--red),#c62828);color:#fff;border:none;border-radius:12px;font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 6px 24px var(--red-g)}
+    .btn-download:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(229,57,53,.45)}
+    .btn-download:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+    /* CONTENT */
+    .content-wrap{max-width:1100px;margin:0 auto;padding:80px 24px}
+    .trust-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 32px;margin:60px 0 80px}
+    .trust-item{display:flex;align-items:center;gap:8px;font-size:.88rem;font-weight:600;color:var(--muted)}
+    .trust-icon{width:32px;height:32px;border-radius:8px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem}
+    .section-label{font-size:.72rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+    .section-title{font-family:'Syne',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;color:var(--dark);line-height:1.25;margin-bottom:16px;letter-spacing:-.5px}
+    .section-desc{color:var(--muted);max-width:560px;font-size:.97rem}
+
+    /* STEPS */
+    .how-section{margin-bottom:80px}
+    .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:40px}
+    .step-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;box-shadow:var(--shadow);transition:box-shadow .2s,transform .2s;position:relative;overflow:hidden}
+    .step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),#ff8a80)}
+    .step-card:hover{box-shadow:0 8px 40px rgba(60,60,100,.14);transform:translateY(-3px)}
+    .step-num{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:rgba(229,57,53,.18);line-height:1;margin-bottom:14px}
+    .step-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:8px}
+    .step-desc{font-size:.88rem;color:var(--muted);line-height:1.65}
+
+    /* FEATURES */
+    .features-section{margin-bottom:80px}
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:40px}
+    .feat-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);display:flex;gap:16px;transition:box-shadow .2s}
+    .feat-card:hover{box-shadow:0 8px 40px rgba(60,60,100,.14)}
+    .feat-icon{width:44px;height:44px;border-radius:10px;background:var(--red-l);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+    .feat-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--dark);margin-bottom:5px}
+    .feat-desc{font-size:.85rem;color:var(--muted);line-height:1.6}
+
+    /* TABLE */
+    .formats-section{margin-bottom:80px}
+    .formats-table{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin-top:40px}
+    .formats-table th{background:var(--dark);color:rgba(255,255,255,.7);font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;padding:14px 20px;text-align:left;font-weight:700}
+    .formats-table td{padding:14px 20px;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text)}
+    .formats-table tr:last-child td{border-bottom:none}
+    .formats-table tr:hover td{background:var(--bg)}
+    .badge-good{display:inline-block;background:rgba(67,160,71,.1);color:#2e7d32;border-radius:6px;padding:2px 10px;font-size:.78rem;font-weight:700}
+
+    /* ARTICLE */
+    .article-section{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:48px;box-shadow:var(--shadow);margin-bottom:80px}
+    .article-section h2{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--dark);margin:32px 0 12px;letter-spacing:-.3px}
+    .article-section h2:first-child{margin-top:0}
+    .article-section h3{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--dark);margin:24px 0 10px}
+    .article-section p{color:var(--text);font-size:.95rem;margin-bottom:14px;line-height:1.75}
+    .article-section ul{margin:12px 0 18px 20px;color:var(--text);font-size:.95rem;line-height:1.75}
+    .article-section ul li{margin-bottom:6px}
+
+    /* FAQ */
+    .faq-section{margin-bottom:80px}
+    .faq-grid{display:grid;gap:12px;margin-top:40px}
+    .faq-item{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 24px;background:none;border:none;cursor:pointer;text-align:left;font-family:'Nunito',sans-serif;font-size:.97rem;font-weight:700;color:var(--dark);gap:16px}
+    .faq-arrow{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--red-l);display:flex;align-items:center;justify-content:center;transition:transform .3s;color:var(--red);font-size:1rem;font-weight:700}
+    .faq-item.open .faq-arrow{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;padding:0 24px;font-size:.9rem;color:var(--muted);line-height:1.7}
+    .faq-item.open .faq-a{max-height:200px;padding:0 24px 20px}
+
+    /* CTA */
+    .cta-section{background:linear-gradient(135deg,#1a1a2e,#0f3460);border-radius:20px;padding:60px 40px;text-align:center;margin-bottom:60px;position:relative;overflow:hidden}
+    .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 100%,rgba(229,57,53,.2),transparent 60%);pointer-events:none}
+    .cta-section h2{font-family:'Syne',sans-serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:#fff;margin-bottom:12px;position:relative}
+    .cta-section p{color:rgba(255,255,255,.55);margin-bottom:30px;font-size:.95rem;position:relative}
+    .cta-btn{display:inline-block;padding:15px 40px;background:var(--red);color:#fff;border-radius:12px;font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;text-decoration:none;box-shadow:0 6px 30px var(--red-g);transition:all .2s;position:relative}
+    .cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(229,57,53,.55)}
+
+    /* FOOTER */
+    footer{background:var(--dark);color:rgba(255,255,255,.4);text-align:center;padding:40px 24px;font-size:.83rem;line-height:2}
+    footer a{color:rgba(255,255,255,.5);text-decoration:none}
+    footer a:hover{color:var(--red)}
+
+    /* ANIMATIONS */
+    @keyframes riseUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .anim{opacity:0;animation:fadeUp .6s ease both;animation-play-state:paused}
+
+    @media(max-width:640px){
+      .input-row{flex-direction:column}
+      .video-preview{flex-direction:column!important}
+      .thumb-wrap{width:100%!important;height:180px!important}
+      .article-section{padding:24px 18px}
+      .cta-section{padding:40px 20px}
+      .nav-links{display:none}
+    }
+  </style>
+</head>
+<body>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">YT<span>GRAB</span></a>
+    <ul class="nav-links">
+      <li><a href="#how-to-use">How to Use</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#formats">Formats</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" role="banner">
+  <div class="hero-badge">⚡ Free · Fast · No Signup</div>
+  <h1>Download <span class="hl">YouTube Videos</span><br/>in HD — Free &amp; Instant</h1>
+  <p class="hero-sub">The fastest way to save YouTube videos as MP4 or MP3. No ads, no registration, works on all devices.</p>
+</header>
+
+<main>
+  <!-- TOOL -->
+  <div class="tool-wrap">
+    <div class="tool-card">
+      <div class="tool-header">
+        <h2>YouTube Video Downloader</h2>
+        <div class="input-row">
+          <input type="text" id="urlInput" class="url-input"
+            placeholder="Paste YouTube URL here... https://www.youtube.com/watch?v=..."
+            aria-label="YouTube video URL" autocomplete="off"/>
+          <button class="btn-fetch" id="fetchBtn" onclick="fetchInfo()">Fetch Video</button>
+        </div>
+        <div class="error-box" id="errorBox" role="alert"></div>
+      </div>
+
+      <div class="loading-box" id="loadingBox">
+        <div class="spinner"></div>
+        <p id="loadingText" style="color:var(--muted);font-size:.9rem">Fetching video info...</p>
+      </div>
+
+      <div class="video-preview" id="videoPreview" style="display:none;flex-direction:row">
+        <div class="thumb-wrap">
+          <img id="thumbImg" src="" alt="Video thumbnail" loading="lazy"/>
+        </div>
+        <div class="vmeta">
+          <div class="vtitle" id="videoTitle"></div>
+          <div class="vchips">
+            <div class="vchip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span id="videoDuration">—</span>
+            </div>
+            <div class="vchip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <span id="videoUploader">—</span>
+            </div>
+            <div class="vchip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <span id="videoViews">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dl-panel" id="dlPanel">
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab('video',this)">🎬 Video (MP4)</button>
+          <button class="tab-btn" onclick="switchTab('audio',this)">🎵 Audio (MP3)</button>
+        </div>
+        <div id="videoFormats">
+          <div class="format-grid" id="formatGrid"></div>
+        </div>
+        <div id="audioSection" style="display:none">
+          <p style="color:var(--muted);font-size:.88rem;margin-bottom:16px;padding:14px;background:var(--bg);border-radius:10px">
+            🎵 Extract high-quality <strong>192kbps MP3</strong> audio. Perfect for music, podcasts and lectures.
+          </p>
+        </div>
+        <div class="progress-wrap" id="progressWrap">
+          <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+          <div class="progress-label" id="progressLabel">Preparing download...</div>
+        </div>
+        <button class="btn-download" id="downloadBtn" onclick="startDownload()">
+          ⬇ Download Now — It's Free
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-wrap">
+
+    <div class="trust-bar">
+      <div class="trust-item"><div class="trust-icon">🔒</div> 100% Secure</div>
+      <div class="trust-item"><div class="trust-icon">⚡</div> Lightning Fast</div>
+      <div class="trust-item"><div class="trust-icon">🆓</div> Always Free</div>
+      <div class="trust-item"><div class="trust-icon">📱</div> All Devices</div>
+      <div class="trust-item"><div class="trust-icon">🎬</div> HD Quality</div>
+      <div class="trust-item"><div class="trust-icon">🚫</div> No Signup</div>
+    </div>
+
+    <!-- HOW TO USE -->
+    <section class="how-section anim" id="how-to-use">
+      <div class="section-label">Simple Steps</div>
+      <h2 class="section-title">How to Download YouTube Videos</h2>
+      <p class="section-desc">Download any YouTube video in 3 easy steps. No software to install, no account needed.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-title">Copy the YouTube URL</div>
+          <p class="step-desc">Go to YouTube, find the video you want, and copy its URL from the address bar or the share button.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-title">Paste &amp; Fetch</div>
+          <p class="step-desc">Paste the link into the input box above and click "Fetch Video". YTGrab instantly loads video details and all available formats.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-title">Choose Quality &amp; Download</div>
+          <p class="step-desc">Select your preferred quality (1080p, 720p, 480p) or switch to MP3 for audio only, then hit Download.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section anim" id="features">
+      <div class="section-label">Why YTGrab</div>
+      <h2 class="section-title">The Best Free YouTube Downloader Online</h2>
+      <p class="section-desc">Everything you need to save YouTube videos — fast, private, and completely free.</p>
+      <div class="features-grid">
+        <div class="feat-card"><div class="feat-icon">🎬</div><div><div class="feat-title">HD Video Download</div><p class="feat-desc">Download in Full HD 1080p, 720p, 480p, and 360p. Always get the best quality available for any video.</p></div></div>
+        <div class="feat-card"><div class="feat-icon">🎵</div><div><div class="feat-title">YouTube to MP3</div><p class="feat-desc">Convert any YouTube video to MP3 audio at 192kbps quality. Perfect for music, podcasts, and lectures.</p></div></div>
+        <div class="feat-card"><div class="feat-icon">⚡</div><div><div class="feat-title">Instant Download</div><p class="feat-desc">No waiting, no queues. YTGrab downloads videos directly to your device at maximum server speed.</p></div></div>
+        <div class="feat-card"><div class="feat-icon">🔒</div><div><div class="feat-title">Private &amp; Secure</div><p class="feat-desc">We never store your downloads. Files are deleted from our server immediately after you receive them.</p></div></div>
+        <div class="feat-card"><div class="feat-icon">📱</div><div><div class="feat-title">Works on All Devices</div><p class="feat-desc">Works on Android, iPhone, iPad, Windows, Mac, and Linux — any browser, any screen size.</p></div></div>
+        <div class="feat-card"><div class="feat-icon">🆓</div><div><div class="feat-title">Completely Free</div><p class="feat-desc">No hidden fees, no subscription, no account required. YTGrab is 100% free with unlimited downloads.</p></div></div>
+      </div>
+    </section>
+
+    <!-- FORMATS TABLE -->
+    <section class="formats-section anim" id="formats">
+      <div class="section-label">Supported Formats</div>
+      <h2 class="section-title">All Supported Video &amp; Audio Formats</h2>
+      <p class="section-desc">YTGrab supports a wide range of output formats and quality settings for every YouTube video.</p>
+      <table class="formats-table">
+        <thead>
+          <tr>
+            <th>Format</th><th>Quality</th><th>Best For</th><th>Est. File Size / hr</th><th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>MP4</strong></td><td>1080p Full HD</td><td>TV / PC playback</td><td>300–800 MB</td><td><span class="badge-good">✓ Supported</span></td></tr>
+          <tr><td><strong>MP4</strong></td><td>720p HD</td><td>General purpose</td><td>150–400 MB</td><td><span class="badge-good">✓ Supported</span></td></tr>
+          <tr><td><strong>MP4</strong></td><td>480p</td><td>Mobile / data saving</td><td>80–200 MB</td><td><span class="badge-good">✓ Supported</span></td></tr>
+          <tr><td><strong>MP4</strong></td><td>360p</td><td>Small file size</td><td>40–100 MB</td><td><span class="badge-good">✓ Supported</span></td></tr>
+          <tr><td><strong>MP3</strong></td><td>192kbps Audio</td><td>Music / Podcasts</td><td>80–100 MB</td><td><span class="badge-good">✓ Supported</span></td></tr>
+          <tr><td><strong>WebM</strong></td><td>Various</td><td>Web / Chrome</td><td>Varies</td><td><span class="badge-good">✓ Supported</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SEO ARTICLE -->
+    <section class="article-section anim">
+      <h2>The Complete Guide to Downloading YouTube Videos Free in 2024</h2>
+      <p>YouTube is the world's largest video platform with over 800 million videos and 500 hours of new content uploaded every minute. Whether you want to watch offline during travel, save tutorials for reference, or preserve important content, downloading YouTube videos is a common need for millions of users worldwide.</p>
+      <p>YTGrab is a free, browser-based YouTube video downloader that lets you save any public YouTube video in seconds — no software installation, no account, no hassle.</p>
+
+      <h2>How Does an Online YouTube Downloader Work?</h2>
+      <p>When you paste a YouTube URL into YTGrab, our server uses the powerful open-source <strong>yt-dlp</strong> library to query YouTube's internal streaming API and extract all available video and audio streams. YouTube hosts every video in multiple formats and quality levels. YTGrab fetches all options and lets you pick the format that suits your needs.</p>
+      <p>Once you choose a format and click download, our server processes the video file and streams it directly to your browser in real time. Files are never permanently stored on our servers — they are deleted immediately after delivery to protect your privacy.</p>
+
+      <h2>YouTube to MP4 — Best Quality Video Download</h2>
+      <p>MP4 is the most universally compatible video format, supported by every device including iPhones, Android phones, Windows PCs, Macs, smart TVs, and tablets. When you download a YouTube video as MP4, you get:</p>
+      <ul>
+        <li><strong>1080p Full HD</strong> — Crisp, detailed video perfect for large screens and editing</li>
+        <li><strong>720p HD</strong> — Great quality with a more manageable file size</li>
+        <li><strong>480p / 360p</strong> — Smaller files for limited storage or slow connections</li>
+        <li>Compatibility with all media players including VLC, Windows Media Player, and QuickTime</li>
+      </ul>
+
+      <h2>YouTube to MP3 — Audio-Only Downloads</h2>
+      <p>Want just the audio from a YouTube video? YTGrab can extract and convert YouTube audio to high-quality <strong>MP3 at 192kbps</strong>. This is perfect for:</p>
+      <ul>
+        <li>Saving music or songs from YouTube music videos</li>
+        <li>Downloading podcast episodes shared on YouTube</li>
+        <li>Archiving educational lectures and audiobooks for offline listening</li>
+        <li>Creating playlists from conference talks and interviews</li>
+      </ul>
+
+      <h2>Is It Safe to Use YTGrab?</h2>
+      <p>Yes. YTGrab runs entirely in your browser — we install nothing on your device. No software, no browser extensions, no plugins. We do not collect personal data and do not store downloaded files. All communication is encrypted over HTTPS.</p>
+
+      <h3>Pro Tips for Best Results</h3>
+      <ul>
+        <li>Always use the full YouTube URL (e.g. <code>https://www.youtube.com/watch?v=XXXXX</code>)</li>
+        <li>For music extraction, choose the MP3 tab to get audio-only files</li>
+        <li>Age-restricted or private videos cannot be downloaded</li>
+        <li>For long videos (1+ hour), allow a few minutes for processing</li>
+        <li>If a quality option isn't available, choose the next best option</li>
+      </ul>
+
+      <h2>Download YouTube Videos on Android &amp; iPhone</h2>
+      <p>YTGrab works seamlessly on mobile browsers. On <strong>Android</strong>, open Chrome or Firefox, paste your YouTube URL, fetch the video, and tap download — the file saves to your Downloads folder. On <strong>iPhone</strong>, open Safari, paste the URL, and use the share sheet to save the file to Files or your camera roll.</p>
+
+      <h2>Why Choose YTGrab Over Other YouTube Downloaders?</h2>
+      <p>Unlike many YouTube downloaders that are cluttered with ads, require registration, install unwanted software, or redirect you to suspicious pages, YTGrab is a clean, purpose-built tool with a single goal: download your video, fast and free. No tracking, no popups, no gimmicks.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section anim" id="faq">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-desc">Everything you need to know about downloading YouTube videos with YTGrab.</p>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">How do I download a YouTube video?<span class="faq-arrow">+</span></button>
+          <div class="faq-a">Paste the YouTube video URL into the input box at the top of the page, click "Fetch Video", choose your preferred quality or format (MP4 or MP3), then click "Download Now". The file will save directly to your device.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Is YTGrab completely free?<span class="faq-arrow">+</span></button>
+          <div class="faq-a">Yes, YTGrab is 100% free. There is no registration, no account needed, no subscription, and no download limits. You can download as many YouTube videos as you want at no cost.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Can I download YouTube videos on my phone?<span class="faq-arrow">+</span></button>
+          <div class="faq-a">Yes! YTGrab works on all devices including Android phones, iPhones, iPads, and tablets. Open this website in any mobile browser — Chrome, Safari, Firefox — paste the URL, and download.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">What video quality options are supported?<span class="faq-arrow">+</span></button>
+          <div class="faq-a">YTGrab supports all available qualities including 1080p Full HD, 720p HD, 480p, 360p, and 240p in MP4 format. You can also extract audio as MP3 at 192kbps quality.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">How do I convert YouTube to MP3?<span class="faq-arrow">+</span></button>
+          <div class="faq-a">Paste the YouTube URL, click "Fetch Video", then click the "Audio (MP3)" tab in the download panel, and click "Download Now". The audio will be extracted and saved as a high-quality 192kbps MP3 file.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Are my downloads private and secure?<span class="faq-arrow">+</span></button>
+          <div class="faq-a">Absolutely. YTGrab processes downloads on-the-fly and never permanently stores files on our servers. Files are deleted immediately after being sent to your browser. We do not collect or share your data.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Why can't I download some videos?<span class="faq-arrow">+</span></button>
+          <div class="faq-a">Some videos cannot be downloaded due to: being private or unlisted, age-restricted content requiring a login, region-locked videos, or DRM protection. Only publicly available videos can be downloaded.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Do I need to install any software?<span class="faq-arrow">+</span></button>
+          <div class="faq-a">No. YTGrab is fully browser-based. You don't need to install any software, apps, or browser extensions. Just visit this page, paste your YouTube URL, and download — it's that simple.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-section anim">
+      <h2>Ready to Download Your First Video?</h2>
+      <p>Join thousands of users who save YouTube videos with YTGrab every day. Free, fast, and private.</p>
+      <a href="#" class="cta-btn" onclick="document.getElementById('urlInput').focus();return false;">
+        ⬆ Start Downloading Free
+      </a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p><strong style="color:rgba(255,255,255,.7)">YTGrab</strong> — Free YouTube Video Downloader</p>
+  <p>
+    <a href="#">Home</a> &nbsp;·&nbsp;
+    <a href="#how-to-use">How to Use</a> &nbsp;·&nbsp;
+    <a href="#features">Features</a> &nbsp;·&nbsp;
+    <a href="#faq">FAQ</a>
+  </p>
+  <p style="margin-top:12px">⚠️ Use responsibly. Only download videos you have permission to download. Respect YouTube's Terms of Service and copyright laws.</p>
+  <p>© 2024 YTGrab. All rights reserved.</p>
+</footer>
+
+<script>
+let videoInfo=null,currentTab='video';
+
+function showError(m){const b=document.getElementById('errorBox');b.textContent=m;b.style.display='block'}
+function hideError(){document.getElementById('errorBox').style.display='none'}
+function showLoading(t){
+  document.getElementById('loadingText').textContent=t||'Fetching video info...';
+  document.getElementById('loadingBox').style.display='block';
+  document.getElementById('videoPreview').style.display='none';
+  document.getElementById('dlPanel').style.display='none';
+}
+function hideLoading(){document.getElementById('loadingBox').style.display='none'}
+function fmtDur(s){if(!s)return'—';const h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sec=s%60;if(h>0)return`${h}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;return`${m}:${String(sec).padStart(2,'0')}`}
+function fmtViews(n){if(!n)return'—';if(n>=1e9)return(n/1e9).toFixed(1)+'B views';if(n>=1e6)return(n/1e6).toFixed(1)+'M views';if(n>=1e3)return(n/1e3).toFixed(1)+'K views';return n+' views'}
+
+async function fetchInfo(){
+  const url=document.getElementById('urlInput').value.trim();
+  if(!url){showError('Please paste a YouTube URL first.');return}
+  if(!url.includes('youtube.com')&&!url.includes('youtu.be')){showError('Please enter a valid YouTube URL.');return}
+  hideError();showLoading('Fetching video info...');
+  document.getElementById('fetchBtn').disabled=true;
+  try{
+    const res=await fetch('/info',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url})});
+    const data=await res.json();
+    if(data.error){hideLoading();showError('Error: '+data.error);return}
+    videoInfo=data;renderCard(data);hideLoading();
+    document.getElementById('videoPreview').style.display='flex';
+    document.getElementById('dlPanel').style.display='block';
+  }catch(e){hideLoading();showError('Connection error. Is the server running?')}
+  finally{document.getElementById('fetchBtn').disabled=false}
+}
+
+function renderCard(data){
+  document.getElementById('thumbImg').src=data.thumbnail||'';
+  document.getElementById('thumbImg').alt=(data.title||'Video')+' thumbnail';
+  document.getElementById('videoTitle').textContent=data.title||'Unknown Title';
+  document.getElementById('videoDuration').textContent=fmtDur(data.duration);
+  document.getElementById('videoUploader').textContent=data.uploader||'—';
+  document.getElementById('videoViews').textContent=fmtViews(data.view_count);
+  const grid=document.getElementById('formatGrid');grid.innerHTML='';
+  const seen=new Set();
+  const fmts=(data.formats||[]).filter(f=>{const k=f.resolution+f.ext;if(seen.has(k))return false;seen.add(k);return['mp4','webm'].includes(f.ext)}).slice(0,8);
+  const opts=fmts.length>0?fmts:[{format_id:'best[ext=mp4]/best',resolution:'Best',ext:'mp4'},{format_id:'worst[ext=mp4]/worst',resolution:'Low',ext:'mp4'}];
+  opts.forEach((f,i)=>{const id='fmt_'+f.format_id.replace(/[^a-z0-9]/gi,'_');grid.innerHTML+=`<div><input type="radio" name="format" id="${id}" value="${f.format_id}" class="fmt-radio" ${i===0?'checked':''}><label for="${id}" class="fmt-label"><span class="fmt-res">${f.resolution}</span><span class="fmt-ext">${f.ext}</span></label></div>`});
+}
+
+function switchTab(tab,btn){
+  currentTab=tab;
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('videoFormats').style.display=tab==='video'?'block':'none';
+  document.getElementById('audioSection').style.display=tab==='audio'?'block':'none';
+}
+
+async function startDownload(){
+  if(!videoInfo)return;
+  const url=document.getElementById('urlInput').value.trim();
+  const audioOnly=currentTab==='audio';
+  let fmt='best[ext=mp4]/best';
+  if(!audioOnly){const s=document.querySelector('input[name="format"]:checked');if(s)fmt=s.value}
+  const pW=document.getElementById('progressWrap'),pF=document.getElementById('progressFill'),pL=document.getElementById('progressLabel'),dB=document.getElementById('downloadBtn');
+  pW.style.display='block';dB.disabled=true;pL.textContent='Starting download...';
+  let w=0;
+  const t=setInterval(()=>{w=Math.min(w+Math.random()*7,85);pF.style.width=w+'%';if(w>20)pL.textContent='Downloading from YouTube...';if(w>55)pL.textContent='Processing your file...';if(w>75)pL.textContent='Almost done...'},500);
+  try{
+    const res=await fetch('/download',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url,format:fmt,audio_only:audioOnly})});
+    clearInterval(t);
+    if(!res.ok){const err=await res.json().catch(()=>({error:'Download failed'}));pW.style.display='none';showError(err.error||'Download failed.');dB.disabled=false;return}
+    pF.style.width='100%';pL.textContent='✓ Saving to your device...';
+    const blob=await res.blob();
+    const disp=res.headers.get('Content-Disposition')||'';
+    const match=disp.match(/filename="(.+?)"/);
+    const filename=match?match[1]:(audioOnly?'audio.mp3':'video.mp4');
+    const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>{pW.style.display='none';pF.style.width='0%';dB.disabled=false;pL.textContent='Preparing download...'},3000);
+  }catch(e){clearInterval(t);pW.style.display='none';showError('Download failed. Check your connection.');dB.disabled=false}
+}
+
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item'),isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-q').setAttribute('aria-expanded','false')});
+  if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true')}
+}
+
+// Scroll animations
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.animationPlayState='running'}})},{threshold:.1});
+document.querySelectorAll('.anim').forEach(el=>{el.style.animationPlayState='paused';obs.observe(el)});
+
+document.getElementById('urlInput').addEventListener('keydown',e=>{if(e.key==='Enter')fetchInfo()});
+</script>
+</body>
+</html>
